@@ -1,0 +1,39 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript" src="http://7xinlv.com1.z0.glb.clouddn.com/jquery.min.js"></script>
+	<script type="text/javascript" src="js/weixinApi.js"></script>
+	<title></title>
+</head>
+<body>
+	<script>
+		//appid, 接口数组, 是否开启,如果不开启，不传参即可。
+		weixinApi.init('xxxxx', ['onMenuShareTimeline'], true);
+		wx.ready(function(){
+			share();	
+		});
+		wx.error(function(res){
+			alert(res);
+		});
+		function share(){
+			wx.onMenuShareTimeline({
+			title: 'aaabbb', // 分享标题
+			link: 'http://domain.cn/test.php', // 分享链接
+			imgUrl: 'http://domain.cn/ugc/147450.png', // 分享图标
+			success: function () {
+			// 用户确认分享后执行的回调函数
+			alert('分享成功');
+			},
+			cancel: function () {
+			// 用户取消分享后执行的回调函数
+			alert('取消分享');
+			}
+		});
+
+		}
+			
+	</script>
+</body>
+</html>
